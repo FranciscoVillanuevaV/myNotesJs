@@ -1,0 +1,112 @@
+<div class="text-viewer--content--3hoqQ">
+  <div class="a1 mb-space-md">
+    Using Booleans in Conditions &amp; More on Text Comparisons
+  </div>
+  <div class="p-space-md">
+    <div
+      data-purpose="safely-set-inner-html:rich-text-viewer:html"
+      class="article-asset--content--1dAQ9"
+    >
+      <h4>Understanding the "Condition"</h4>
+      <p>Always keep in mind that <code>condition</code> in</p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">condition</span><span class="pun">)</span><span class="pln">&nbsp;</span><span class="pun">{</span><span class="pln"> </span><span class="pun">...</span><span class="pln"> </span><span class="pun">}</span></li></ol></pre>
+        </div>
+      </div>
+      <p>simply has to be a <strong>boolean value</strong>.</p>
+      <p>
+        Often, you'll <strong>generate</strong> such a boolean value with the
+        help of <code>===</code>, <code>&gt;</code>, <code>&lt;</code> etc.
+        <strong>All these operators yield boolean values</strong> (without
+        changing the variables/&nbsp;values you're using them on).
+      </p>
+      <p>
+        Since <code>if</code> only wants a boolean, you of course
+        <strong>don't have to use such an operator</strong>. If you already got
+        a variable that holds a boolean, you can use it without any extra
+        operator.
+      </p>
+      <p>Example:</p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">const</span><span class="pln"> isLoggedIn </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="kwd">true</span><span class="pun">;</span></li><li class="L1"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isLoggedIn</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    </span><span class="com">//&nbsp;This code will execute because isLoggedIn is true =&gt;&nbsp;A valid condition</span></li><li class="L3"><span class="pun">}</span></li></ol></pre>
+        </div>
+      </div>
+      <p>You could write</p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">const</span><span class="pln"> isLoggedIn </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="kwd">true</span><span class="pun">;</span></li><li class="L1"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isLoggedIn </span><span class="pun">===</span><span class="pln">&nbsp;</span><span class="kwd">true</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    </span><span class="pun">...</span></li><li class="L3"><span class="pun">}</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        but that would be <strong>redundant</strong>. You'd generate another new
+        boolean where you already got one.
+      </p>
+      <p>
+        You can use the <code>!</code> operator to negate ("invert") the value:
+      </p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">const</span><span class="pln"> isLoggedIn </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="kwd">true</span><span class="pun">;</span></li><li class="L1"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">isLoggedIn</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    </span><span class="com">//&nbsp;This code will NOT&nbsp;execute because isLoggedIn is true but !&nbsp;inverts it (in this check)</span></li><li class="L3"><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li><li class="L4"><span class="pln">    </span><span class="com">//&nbsp;This would execute because !isLoggedIn yields false =&gt;&nbsp;else block executes</span></li><li class="L5"><span class="pun">}</span></li></ol></pre>
+        </div>
+      </div>
+      <p>Again, that would be similar to:</p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">const</span><span class="pln"> isLoggedIn </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="kwd">true</span><span class="pun">;</span></li><li class="L1"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isLoggedIn </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    </span><span class="com">//&nbsp;This would NOT execute</span></li><li class="L3"><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li><li class="L4"><span class="pln">    </span><span class="com">//&nbsp;This would execute because isLoggedIn is true and hence !== true yields false</span></li><li class="L5"><span class="pun">}</span></li></ol></pre>
+        </div>
+      </div>
+      <p>But again, that would be redundant.</p>
+      <h4>More on Text (String) Comparisons</h4>
+      <p>
+        Strings can also be compared with greater than (<code>&gt;</code>) or
+        lower/&nbsp;smaller than (<code>&lt;</code>)&nbsp;operators.
+      </p>
+      <p>
+        JavaScript compares strings based on standard lexicographical ordering,
+        using Unicode values.
+      </p>
+      <p>
+        That means that <code>b</code> is greater than <code>a</code> for
+        example.
+      </p>
+      <p>
+        JavaScript always looks at the first character and only considers other
+        characters if the first character is similar. In addition, capital
+        characters are considered to be smaller than lowercase characters.
+      </p>
+      <p>See these examples:</p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="str">'ab'</span><span class="pln">&nbsp;</span><span class="pun">&gt;</span><span class="pln">&nbsp;</span><span class="str">'aa'</span><span class="pln"> </span><span class="com">//&nbsp;true</span></li><li class="L1"><span class="str">'a'</span><span class="pln">&nbsp;</span><span class="pun">&gt;</span><span class="pln">&nbsp;</span><span class="str">'B'</span><span class="pln"> </span><span class="com">// true</span></li><li class="L2"><span class="str">'a'</span><span class="pln">&nbsp;</span><span class="pun">&gt;</span><span class="pln">&nbsp;</span><span class="str">'b'</span><span class="pln">&nbsp;</span><span class="com">// false</span></li></ol></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-space-sm"></div>
+</div>

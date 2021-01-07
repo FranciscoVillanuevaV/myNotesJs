@@ -1,0 +1,159 @@
+<div class="text-viewer--content--3hoqQ">
+  <div class="a1 mb-space-md">Summary: Node Query Methods</div>
+  <div class="p-space-md">
+    <div
+      data-purpose="safely-set-inner-html:rich-text-viewer:html"
+      class="article-asset--content--1dAQ9"
+    >
+      <p>
+        Here's a summary of the various methods you got to reach out to
+        DOM&nbsp;elements (note:&nbsp;you can only query for element nodes).
+      </p>
+      <p>
+        Besides the below query methods, you also got these special properties
+        on the document object to select parts of the document:
+      </p>
+      <p>
+        <code>document.body</code> =&gt;&nbsp;Selects the
+        <code>&lt;body&gt;</code> element node.
+      </p>
+      <p>
+        <code>document.head</code> =&gt;&nbsp;Selects the
+        <code>&lt;head&gt;</code>&nbsp;element node.
+      </p>
+      <p>
+        <code>document.documentElement</code> =&gt;&nbsp;Selects the
+        <code>&lt;html&gt;</code> element node
+      </p>
+      <p>---</p>
+      <p><strong>QUERY&nbsp;METHODS</strong></p>
+      <p>---</p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="pln">document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(&lt;</span><span class="pln">CSS&nbsp;selector</span><span class="pun">&gt;);</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        Takes any CSS&nbsp;selector (e.g. <code>'#some-id'</code>,
+        <code>'.some-class'</code> or <code>'div p.some-class'</code>) and
+        returns the first (!)&nbsp;matching element in the DOM. Returns
+        <code>null</code> if no matching element could be found.
+      </p>
+      <p>
+        More information:&nbsp;<a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector"
+          >https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector</a
+        >
+      </p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(&lt;</span><span class="pln">ID</span><span class="pun">&gt;);</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        Takes an ID (without <code>#</code>, just the id name) and returns the
+        element that has this id. Since the same ID shouldn't occur more than
+        once on your page, it'll always return exactly that one element. Returns
+        <code>null</code> if no element with the specified ID&nbsp;could be
+        found.
+      </p>
+      <p>
+        More information:&nbsp;<a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById"
+          >https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById</a
+        >
+      </p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="pln">document</span><span class="pun">.</span><span class="pln">querySelectorAll</span><span class="pun">(&lt;</span><span class="pln">CSS&nbsp;selector</span><span class="pun">&gt;);</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        Takes any CSS&nbsp;selector (e.g. <code>'#some-id'</code>,
+        <code>'.some-class'</code> or <code>'div p.some-class'</code>) and
+        returns all matching elements in the DOM as a static
+        (non-live)&nbsp;<code>NodeList</code>. Returns and empty
+        <code>NodeList</code> if no matching element could be found.
+      </p>
+      <p>
+        More information:&nbsp;<a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll"
+          >https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll</a
+        >
+      </p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementsByClassName</span><span class="pun">(&lt;</span><span class="pln">CSS&nbsp;CLASS</span><span class="pun">&gt;);</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        Takes a CSS&nbsp;class g (e.g. <code>'some-class'</code>) and returns a
+        live <code>HTMLCollection</code> of matched elements in your DOM.
+        Returns an empty <code>HTMLCollection</code> if not matching elements
+        were found.
+      </p>
+      <p>
+        More information:&nbsp;<a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName"
+          >https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName</a
+        >
+      </p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementsByTagName</span><span class="pun">(&lt;</span><span class="pln">HTML&nbsp;TAG</span><span class="pun">&gt;);</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        Takes an HTML&nbsp;tag (e.g. <code>'p'</code>) and returns a live
+        <code>HTMLCollection</code> of matched elements in your DOM. Returns an
+        empty <code>HTMLCollection</code> if not matching elements were found.
+      </p>
+      <p>
+        More information:&nbsp;<a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName"
+          >https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName</a
+        >
+      </p>
+      <p>
+        There also is the <code>getElementsByName()</code>&nbsp;method which
+        really isn't used commonly&nbsp;(<a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByName"
+          >https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByName</a
+        >).
+      </p>
+    </div>
+  </div>
+  <div class="mt-space-sm"></div>
+</div>

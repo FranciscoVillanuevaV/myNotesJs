@@ -1,0 +1,80 @@
+<div class="text-viewer--content--3hoqQ">
+  <div class="a1 mb-space-md">"Shadowed Variables"</div>
+  <div class="p-space-md">
+    <div
+      data-purpose="safely-set-inner-html:rich-text-viewer:html"
+      class="article-asset--content--1dAQ9"
+    >
+      <p>
+        You learned about local ("function-internal") variables and global
+        variables.
+      </p>
+      <p>What happens if you have this code?</p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">let</span><span class="pln"> userName </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">'Max'</span><span class="pun">;</span></li><li class="L1"><span class="kwd">function</span><span class="pln"> greetUser</span><span class="pun">(</span><span class="pln">name</span><span class="pun">)</span><span class="pln">&nbsp;</span><span class="pun">{</span></li><li class="L2"><span class="pln">  </span><span class="kwd">let</span><span class="pln"> userName </span><span class="pun">=</span><span class="pln">&nbsp;name</span><span class="pun">;</span></li><li class="L3"><span class="pln">  alert</span><span class="pun">(</span><span class="pln">userName</span><span class="pun">);</span></li><li class="L4"><span class="pun">}</span></li><li class="L5"><span class="pln">userName </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">'Manu'</span><span class="pun">;</span></li><li class="L6"><span class="pln">greetUser</span><span class="pun">(</span><span class="str">'Max'</span><span class="pun">);</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        This <strong>will actually show</strong> an alert that says
+        <code>'Max'</code>&nbsp;(NOT&nbsp;<code>'Manu'</code>).
+      </p>
+      <p>
+        You might've expected that an error gets thrown because we use and
+        declare <code>userName</code> more than once - and as you learned, that
+        is not allowed.
+      </p>
+      <p>
+        It indeed is
+        <strong>not allowed on the same level/ in the same scope.</strong>
+      </p>
+      <p>So this would fail:</p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">let</span><span class="pln"> userName </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">'Max'</span><span class="pun">;</span></li><li class="L1"><span class="kwd">let</span><span class="pln"> userName </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Manu'</span><span class="pun">;</span></li></ol></pre>
+        </div>
+      </div>
+      <p>Why does it work in the first code snippet though?</p>
+      <p>Because we first create a global variable <code>userName</code> via</p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">let</span><span class="pln"> userName </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">'Max'</span><span class="pun">;</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        But then we never re-declare that on the global level (that would not be
+        allowed).
+      </p>
+      <p>
+        We only declare another variable inside of the function. But since
+        variables in functions get their <strong>own scope</strong>, JavaScript
+        does something which is called <strong>"shadowing"</strong>.
+      </p>
+      <p>
+        It <strong>creates a new variable on a different scop</strong>e - this
+        variables does not overwrite or remove the global variable by the way -
+        <strong>both</strong> <strong>co-exist</strong>.
+      </p>
+      <p>
+        When referring to <code>userName</code> inside of the
+        <code>greetUser</code> function we now
+        <strong>always refer to the local, shadowed variable</strong>. Only
+        <strong>if no such local variable existed</strong>, JavaScript would
+        <strong>fall back to the global variable</strong>.
+      </p>
+    </div>
+  </div>
+  <div class="mt-space-sm"></div>
+</div>

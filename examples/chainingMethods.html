@@ -1,0 +1,60 @@
+<div class="text-viewer--content--3hoqQ">
+  <div class="a1 mb-space-md">Chaining Methods in JavaScript</div>
+  <div class="p-space-md">
+    <div
+      data-purpose="safely-set-inner-html:rich-text-viewer:html"
+      class="article-asset--content--1dAQ9"
+    >
+      <p>
+        With all these useful array methods you learned about, it's important to
+        understand how you can combine them. Let's take
+        <code>map()</code>&nbsp;and <code>reduce()</code>&nbsp;as an example:
+      </p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">const</span><span class="pln"> originalArray </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="pun">[{</span><span class="pln">price</span><span class="pun">:</span><span class="pln">&nbsp;</span><span class="lit">10.99</span><span class="pun">},</span><span class="pln"> </span><span class="pun">{</span><span class="pln">price</span><span class="pun">:</span><span class="pln">&nbsp;</span><span class="lit">5.99</span><span class="pun">},</span><span class="pln"> </span><span class="pun">{</span><span class="pln">price</span><span class="pun">:</span><span class="pln">&nbsp;</span><span class="lit">29.99</span><span class="pun">}];</span></li><li class="L1"><span class="kwd">const</span><span class="pln"> transformedArray </span><span class="pun">=</span><span class="pln">&nbsp;originalArray</span><span class="pun">.</span><span class="pln">map</span><span class="pun">(</span><span class="pln">obj </span><span class="pun">=&gt;</span><span class="pln">&nbsp;obj</span><span class="pun">.</span><span class="pln">price</span><span class="pun">);</span><span class="pln"> </span><span class="com">//&nbsp;produces [10.99, 5.99, 29.99]</span></li><li class="L2"><span class="kwd">const</span><span class="pln"> sum </span><span class="pun">=</span><span class="pln">&nbsp;transformedArray</span><span class="pun">.</span><span class="pln">reduce</span><span class="pun">((</span><span class="pln">sumVal</span><span class="pun">,</span><span class="pln"> curVal</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln">&nbsp;sumVal </span><span class="pun">+</span><span class="pln"> curVal</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span><span class="pln">&nbsp;</span><span class="com">// =&gt;&nbsp;46.97</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        Of course, you could skip the map step and just add the extraction logic
+        to <code>reduce()</code>:
+      </p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">const</span><span class="pln"> originalArray </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="pun">[{</span><span class="pln">price</span><span class="pun">:</span><span class="pln">&nbsp;</span><span class="lit">10.99</span><span class="pun">},</span><span class="pln"> </span><span class="pun">{</span><span class="pln">price</span><span class="pun">:</span><span class="pln">&nbsp;</span><span class="lit">5.99</span><span class="pun">},</span><span class="pln"> </span><span class="pun">{</span><span class="pln">price</span><span class="pun">:</span><span class="pln">&nbsp;</span><span class="lit">29.99</span><span class="pun">}];</span></li><li class="L1"><span class="kwd">const</span><span class="pln"> sum </span><span class="pun">=</span><span class="pln">&nbsp;originalArray</span><span class="pun">.</span><span class="pln">reduce</span><span class="pun">((</span><span class="pln">sumVal</span><span class="pun">,</span><span class="pln"> curVal</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln">&nbsp;sumVal </span><span class="pun">+</span><span class="pln"> curVal</span><span class="pun">.</span><span class="pln">price</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span><span class="pln">&nbsp;</span><span class="com">// =&gt;&nbsp;46.97</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        But let's say you have a more complex extraction logic and hence want to
+        split this into multiple method calls. Or you have a re-usable map
+        function which you want to be able to use in different places of your
+        app. Then you can still write the initial example in a more concise way
+        if you <strong>leverage method chaining</strong>:
+      </p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">const</span><span class="pln"> originalArray </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="pun">[{</span><span class="pln">price</span><span class="pun">:</span><span class="pln">&nbsp;</span><span class="lit">10.99</span><span class="pun">},</span><span class="pln"> </span><span class="pun">{</span><span class="pln">price</span><span class="pun">:</span><span class="pln">&nbsp;</span><span class="lit">5.99</span><span class="pun">},</span><span class="pln"> </span><span class="pun">{</span><span class="pln">price</span><span class="pun">:</span><span class="pln">&nbsp;</span><span class="lit">29.99</span><span class="pun">}];</span></li><li class="L1"><span class="kwd">const</span><span class="pln"> sum </span><span class="pun">=</span><span class="pln">&nbsp;originalArray</span><span class="pun">.</span><span class="pln">map</span><span class="pun">(</span><span class="pln">obj </span><span class="pun">=&gt;</span><span class="pln">&nbsp;obj</span><span class="pun">.</span><span class="pln">price</span><span class="pun">)</span></li><li class="L2"><span class="pln">    </span><span class="pun">.</span><span class="pln">reduce</span><span class="pun">((</span><span class="pln">sumVal</span><span class="pun">,</span><span class="pln"> curVal</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln">&nbsp;sumVal </span><span class="pun">+</span><span class="pln"> curVal</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span><span class="pln">&nbsp;</span><span class="com">// =&gt;&nbsp;46.97</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        We call <code>.reduce()</code> directly on the result of
+        <code>map()</code>&nbsp;(which produces an array, that's why this is
+        possible). Hence we can avoid storing the mapped array in a separate
+        constant or variable that we might not need in any other place.
+      </p>
+    </div>
+  </div>
+  <div class="mt-space-sm"></div>
+</div>

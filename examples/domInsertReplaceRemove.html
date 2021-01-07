@@ -1,0 +1,238 @@
+<div class="text-viewer--content--3hoqQ">
+  <div class="a1 mb-space-md">Summary: Insert, Replace, Remove</div>
+  <div class="p-space-md">
+    <div
+      data-purpose="safely-set-inner-html:rich-text-viewer:html"
+      class="article-asset--content--1dAQ9"
+    >
+      <p>
+        There are many ways of creating, inserting, replacing and removing
+        DOM&nbsp;elements - here's a summary of the options you have.
+      </p>
+      <p>
+        <em
+          >For browser support, check the provided links and also the "Browser
+          Support"&nbsp;module you find later in the course.</em
+        >
+      </p>
+      <h4>Create &amp;&nbsp;Insert</h4>
+      <p>
+        You got two main options: Provide an HTML&nbsp;snippet (e.g. via
+        <code>innerHTML</code>) to a valid HTML&nbsp;snippet and let the browser
+        render it OR create a DOM object in JS&nbsp;code and append/&nbsp;insert
+        it manually. The latter approach has the advantage of giving you direct
+        access to the DOM&nbsp;object (useful for setting its properties or
+        adding event listeners). The downside is that you have to write more
+        code.
+      </p>
+      <p><strong>Adding HTML&nbsp;Code:</strong></p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">const</span><span class="pln"> root </span><span class="pun">=</span><span class="pln">&nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'root-el'</span><span class="pun">);</span><span class="pln"> </span><span class="com">//&nbsp;selects something like &lt;div id="root-el"&gt;</span></li><li class="L1"><span class="pln">root</span><span class="pun">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">`</span></li><li class="L2"><span class="str">    &lt;div&gt;</span></li><li class="L3"><span class="str">        &lt;h2&gt;Welcome!&lt;/h2&gt;</span></li><li class="L4"><span class="str">        &lt;p&gt;This is all create &amp;&nbsp;rendered automatically!&lt;/p&gt;</span></li><li class="L5"><span class="str">    &lt;/div&gt;</span></li><li class="L6"><span class="str">`</span><span class="pun">;</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        <strong>Important</strong>:&nbsp;Any existing content in
+        <code>root</code> is&nbsp; completely replaced when using
+        <code>innerHTML</code>. If you want to append/&nbsp;insert
+        HTML&nbsp;code, you can use
+        <code>insertAdjacentHTML</code> instead:&nbsp;<a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML"
+          >https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML</a
+        >
+      </p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">const</span><span class="pln"> root </span><span class="pun">=</span><span class="pln">&nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'root-el'</span><span class="pun">);</span><span class="pln"> </span><span class="com">//&nbsp;selects something like &lt;div id="root-el"&gt;</span></li><li class="L1"><span class="pln">root</span><span class="pun">.</span><span class="pln">insertAdjacentHTML</span><span class="pun">(</span><span class="str">'afterbegin'</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="str">`</span></li><li class="L2"><span class="str">    &lt;div&gt;</span></li><li class="L3"><span class="str">        &lt;h2&gt;Welcome!&lt;/h2&gt;</span></li><li class="L4"><span class="str">        &lt;p&gt;This is all create &amp;&nbsp;rendered automatically!&lt;/p&gt;</span></li><li class="L5"><span class="str">    &lt;/div&gt;</span></li><li class="L6"><span class="str">`</span><span class="pun">);</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        <strong
+          >Creating &amp;&nbsp;Inserting DOM&nbsp;Objects Manually:</strong
+        >
+      </p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">const</span><span class="pln"> someParagraph </span><span class="pun">=</span><span class="pln">&nbsp;document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'p'</span><span class="pun">);</span><span class="pln"> </span><span class="com">//&nbsp;creates a "p" element (i.e. a &lt;p&gt; element)</span></li><li class="L1"><span class="kwd">const</span><span class="pln"> root </span><span class="pun">=</span><span class="pln">&nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'root-el'</span><span class="pun">);</span><span class="pln"> </span><span class="com">//&nbsp;selects something like &lt;div id="root-el"&gt;</span></li><li class="L2"><span class="pln">root</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">someParagraph</span><span class="pun">);</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        In this example, we create a paragraph and append it to
+        <code>root</code> - append means that it's inserted at the end of
+        <code>root</code> (i.e. inside of it but AFTER&nbsp;all other child
+        nodes it holds).
+      </p>
+      <p><strong>Insertion Methods:</strong></p>
+      <p>
+        <code><strong>append()</strong></code
+        >&nbsp;=&gt;&nbsp;<a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append"
+          >https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append</a
+        >
+      </p>
+      <p>
+        Browser support is decent but for IE,
+        <code><strong>appendChild()</strong></code> could be preferred
+        =&gt;&nbsp;<a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild"
+          >https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild</a
+        >
+      </p>
+      <p>
+        <code><strong>prepend()</strong></code> =&gt;&nbsp;<a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/prepend"
+          >https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/prepend</a
+        >
+      </p>
+      <p>
+        Browser support is decent but for IE,
+        <code><strong>insertBefore()</strong></code> could be preferred
+        =&gt;&nbsp;<a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore"
+          >https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore</a
+        >
+      </p>
+      <p>
+        <code><strong>before()</strong></code
+        >, <code><strong>after()</strong></code> =&gt;&nbsp;<a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/before"
+          >https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/before</a
+        >
+        &amp;&nbsp;<a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/after"
+          >https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/after</a
+        >
+      </p>
+      <p>
+        Browser support is okay but IE&nbsp;and Safari don't support it.
+        Consider <code><strong>insertBefore()</strong></code> (<a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore"
+          >https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore</a
+        >) or <code><strong>insertAdjacentElement()</strong></code> (<a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentElement"
+          >https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentElement</a
+        >) as substitutes.
+      </p>
+      <p>
+        Important (no matter how you insert elements):&nbsp;Whenever you insert
+        elements, you <strong>MOVE&nbsp;the element</strong> to that new place
+        if you already inserted it before. It's
+        <strong>NOT&nbsp;copied</strong> (you can copy an element via
+        <code>someElement.cloneNode(true)</code> though).
+      </p>
+      <h4>Replace</h4>
+      <p>You can replace elements in the DOM with two main methods:</p>
+      <p>
+        <code><strong>replaceWith()</strong></code> =&gt;&nbsp;<a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith"
+          >https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith</a
+        >
+      </p>
+      <p>
+        <code><strong>replaceChild()</strong></code
+        >&nbsp;=&gt;&nbsp;<a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild"
+          >https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild</a
+        >
+      </p>
+      <p>
+        <code>replaceWith()</code> is a bit easier to use and has decent browser
+        support - with IE&nbsp;being the exception. To support that as well,
+        consider using <code>replaceChild()</code>.
+      </p>
+      <h4>Remove</h4>
+      <p>You can remove elements with three main methods:</p>
+      <p>
+        <code><strong>someElement.innerHTML&nbsp;=&nbsp;''</strong></code>
+        =&gt;&nbsp;Clears all HTML&nbsp;content of <code>someElement</code> and
+        hence removes any objects rendered in there.
+      </p>
+      <p>
+        <code><strong>someElement.remove()</strong></code> =&gt;&nbsp;Removes a
+        single element (<code>someElement</code>) from the DOM (<a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/remove"
+          >https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/remove</a
+        >). Browser support is good, IE again doesn't like it though. Use
+        <code>removeChild</code> (see below) instead.
+      </p>
+      <p>
+        <code
+          ><strong
+            >someElement.parentNode.removeChild(someElement)</strong
+          ></code
+        >
+        =&gt;&nbsp; Removes the provided child element (NOT the element on which
+        you call it). Provides broad browser support but of course requires a
+        bit more code (<a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild"
+          >https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild</a
+        >).
+      </p>
+      <h4>What about&nbsp;Text Nodes?</h4>
+      <p>You can easily create &amp;&nbsp;insert text nodes in one go:</p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="pln">someElement</span><span class="pun">.</span><span class="pln">textContent&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">'Hi there!'</span><span class="pun">;</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        This creates and inserts the text node with a content of
+        <code>'Hi there!'</code>.
+      </p>
+      <p><strong>Want to append to existing text?</strong></p>
+      <p>Just use:</p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="pln">someElement</span><span class="pun">.</span><span class="pln">textContent&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;someElement</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">+</span><span class="pln"> </span><span class="str">'More text!'</span><span class="pun">;</span></li></ol></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-space-sm"></div>
+</div>

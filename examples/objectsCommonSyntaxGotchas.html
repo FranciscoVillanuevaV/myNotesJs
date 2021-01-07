@@ -1,0 +1,65 @@
+<div class="text-viewer--content--3hoqQ">
+  <div class="a1 mb-space-md">Objects - Common Syntax Gotchas</div>
+  <div class="p-space-md">
+    <div
+      data-purpose="safely-set-inner-html:rich-text-viewer:html"
+      class="article-asset--content--1dAQ9"
+    >
+      <p>
+        You learned the correct syntax for creating an object in the last
+        lecture:
+      </p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">const</span><span class="pln"> user </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="pun">{</span></li><li class="L1"><span class="pln">    name</span><span class="pun">:</span><span class="pln">&nbsp;</span><span class="str">'Max'</span><span class="pun">,</span></li><li class="L2"><span class="pln">    age</span><span class="pun">:</span><span class="pln"> </span><span class="lit">30</span></li><li class="L3"><span class="pun">};</span></li></ol></pre>
+        </div>
+      </div>
+      <p>A couple of important things:</p>
+      <ol>
+        <li>
+          <p>
+            You use <code>{}</code> to "group the data" - a semicolon
+            (<code>;</code>) is used after the closing <code>}</code>. On
+            functions, we didn't do that. As a rule of thumb, you can keep in
+            mind that <strong>a semicolon is used after </strong
+            ><code><strong>{}</strong></code
+            ><strong> if the </strong><code><strong>{}</strong></code
+            ><strong> are on the right side of the equal sign</strong>!
+          </p>
+        </li>
+        <li>
+          <p>
+            key-value pairs are
+            <strong>separated via a comma</strong> (<code>,</code>),
+            <strong>NOT</strong> via a semicolon. Using a semicolon inside of an
+            object (i.e. between <code>{}</code>), would be a
+            <strong>syntax error</strong>!
+          </p>
+        </li>
+        <li>
+          <p>
+            Values are assigned to keys/&nbsp;properties
+            <strong>via a colon</strong> (<code>:</code>), NOT via an equal sign
+            (<code>=</code>). Using an equal sign inside of an object (i.e.
+            between <code>{}</code>), would be a <strong>syntax error</strong>!
+          </p>
+        </li>
+      </ol>
+      <p>I.e. this would be WRONG and would throw an error:</p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">const</span><span class="pln"> worstPossibleUser </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="pun">{</span></li><li class="L1"><span class="pln">    name </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">'Max'</span><span class="pun">;</span></li><li class="L2"><span class="pln">    age </span><span class="pun">=</span><span class="pln"> </span><span class="lit">30</span><span class="pun">;</span></li><li class="L3"><span class="pun">};</span></li></ol></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-space-sm"></div>
+</div>

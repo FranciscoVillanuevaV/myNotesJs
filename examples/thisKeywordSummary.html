@@ -1,0 +1,109 @@
+<div class="text-viewer--content--3hoqQ">
+  <div class="a1 mb-space-md">"this" - Summary</div>
+  <div class="p-space-md">
+    <div
+      data-purpose="safely-set-inner-html:rich-text-viewer:html"
+      class="article-asset--content--1dAQ9"
+    >
+      <p>
+        The <code>this</code> keyword can lead to some headaches in JavaScript -
+        this summary hopefully acts as a remedy.
+      </p>
+      <p>
+        <code>this</code> refers to different things, depending on where it's
+        used and how (if used in a function)&nbsp;a function is called.
+      </p>
+      <p>
+        Generally, <code>this</code> refers to the "thing"&nbsp;which called a
+        function (if used inside of a function). That can be the global context,
+        an object or some bound data/ object (e.g. when the browser binds
+        <code>this</code> to the button that triggered a click event).
+      </p>
+      <p>
+        <strong>1)&nbsp;</strong><code><strong>this</strong></code
+        ><strong> in Global Context (i.e. outside of any function)</strong>
+      </p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">function</span><span class="pln"> something</span><span class="pun">()</span><span class="pln">&nbsp;</span><span class="pun">{</span><span class="pln"> </span><span class="pun">...</span><span class="pln"> </span><span class="pun">}</span></li><li class="L1"><span class="pln">&nbsp;</span></li><li class="L2"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">);</span><span class="pln"> </span><span class="com">// logs global object (window in browser) - ALWAYS&nbsp;(also in strict mode)!</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        <strong>2)&nbsp;</strong><code><strong>this</strong></code
+        ><strong>
+          in a Function (non-Arrow) - Called in the global context</strong
+        >
+      </p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">function</span><span class="pln"> something</span><span class="pun">()</span><span class="pln">&nbsp;</span><span class="pun">{</span><span class="pln"> </span></li><li class="L1"><span class="pln">    console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">);</span></li><li class="L2"><span class="pun">}</span></li><li class="L3"><span class="pln">&nbsp;</span></li><li class="L4"><span class="pln">something</span><span class="pun">();</span><span class="pln"> </span><span class="com">// logs global object (window in browser) in non-strict mode, undefined in strict mode</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        <strong>3)&nbsp;</strong><code><strong>this</strong></code
+        ><strong> in an Arrow-Function - Called in the global context</strong>
+      </p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">const</span><span class="pln"> something </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="pun">()</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln">&nbsp;</span><span class="pun">{</span><span class="pln"> </span></li><li class="L1"><span class="pln">    console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">);</span></li><li class="L2"><span class="pun">}</span></li><li class="L3"><span class="pln">&nbsp;</span></li><li class="L4"><span class="pln">something</span><span class="pun">();</span><span class="pln"> </span><span class="com">// logs global object (window in browser) - ALWAYS&nbsp;(also in strict mode)!</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        <strong>4)&nbsp;</strong><code><strong>this</strong></code
+        ><strong> in a Method (non-Arrow) - Called on an object</strong>
+      </p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">const</span><span class="pln"> person </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="pun">{</span><span class="pln"> </span></li><li class="L1"><span class="pln">    name</span><span class="pun">:</span><span class="pln">&nbsp;</span><span class="str">'Max'</span><span class="pun">,</span></li><li class="L2"><span class="pln">    greet</span><span class="pun">:</span><span class="pln">&nbsp;</span><span class="kwd">function</span><span class="pun">()</span><span class="pln">&nbsp;</span><span class="pun">{</span><span class="pln"> </span><span class="com">// or use method shorthand: greet() { ... }</span></li><li class="L3"><span class="pln">        console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">name</span><span class="pun">);</span></li><li class="L4"><span class="pln">    </span><span class="pun">}</span></li><li class="L5"><span class="pun">};</span></li><li class="L6"><span class="pln">&nbsp;</span></li><li class="L7"><span class="pln">person</span><span class="pun">.</span><span class="pln">greet</span><span class="pun">();</span><span class="pln">&nbsp;</span><span class="com">//&nbsp;logs 'Max', "this"&nbsp;refers to the person object</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        <strong>5)&nbsp;</strong><code><strong>this</strong></code
+        ><strong> in a Method (Arrow Function) - Called on an object</strong>
+      </p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">const</span><span class="pln"> person </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="pun">{</span><span class="pln"> </span></li><li class="L1"><span class="pln">    name</span><span class="pun">:</span><span class="pln">&nbsp;</span><span class="str">'Max'</span><span class="pun">,</span></li><li class="L2"><span class="pln">    greet</span><span class="pun">:</span><span class="pln">&nbsp;</span><span class="pun">()</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln">&nbsp;</span><span class="pun">{</span></li><li class="L3"><span class="pln">        console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">name</span><span class="pun">);</span></li><li class="L4"><span class="pln">    </span><span class="pun">}</span></li><li class="L5"><span class="pun">};</span></li><li class="L6"><span class="pln">&nbsp;</span></li><li class="L7"><span class="pln">person</span><span class="pun">.</span><span class="pln">greet</span><span class="pun">();</span><span class="pln">&nbsp;</span><span class="com">//&nbsp;logs nothing&nbsp;(or some global name on window object), "this"&nbsp;refers to global (window) object, even in strict mode</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        <code>this</code> can refer to unexpected things if you call it on some
+        other object, e.g.:
+      </p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">const</span><span class="pln"> person </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="pun">{</span><span class="pln"> </span></li><li class="L1"><span class="pln">    name</span><span class="pun">:</span><span class="pln">&nbsp;</span><span class="str">'Max'</span><span class="pun">,</span></li><li class="L2"><span class="pln">    greet</span><span class="pun">()</span><span class="pln">&nbsp;</span><span class="pun">{</span></li><li class="L3"><span class="pln">        console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">name</span><span class="pun">);</span></li><li class="L4"><span class="pln">    </span><span class="pun">}</span></li><li class="L5"><span class="pun">};</span></li><li class="L6"><span class="pln">&nbsp;</span></li><li class="L7"><span class="kwd">const</span><span class="pln"> anotherPerson </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="pun">{</span><span class="pln"> name</span><span class="pun">:</span><span class="pln">&nbsp;</span><span class="str">'Manuel'</span><span class="pln"> </span><span class="pun">};</span><span class="pln"> </span><span class="com">//&nbsp;does NOT have a built-in greet method!</span></li><li class="L8"><span class="pln">&nbsp;</span></li><li class="L9"><span class="pln">anotherPerson</span><span class="pun">.</span><span class="pln">sayHi </span><span class="pun">=</span><span class="pln"> person</span><span class="pun">.</span><span class="pln">greet</span><span class="pun">;</span><span class="pln">&nbsp;</span><span class="com">// greet is NOT called here, it's just assigned to a new property/ method on the "anotherPerson"&nbsp;object</span></li><li class="L0"><span class="pln">&nbsp;</span></li><li class="L1"><span class="pln">anotherPerson</span><span class="pun">.</span><span class="pln">sayHi</span><span class="pun">();</span><span class="pln"> </span><span class="com">//&nbsp;logs 'Manuel' because method is called on "anotherPerson"&nbsp;object =&gt;&nbsp;"this" refers to the "thing"&nbsp;which called it</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        If in doubt, a <code>console.log(this);</code> can always help you find
+        out what <code>this</code> is referring to at the moment!
+      </p>
+    </div>
+  </div>
+  <div class="mt-space-sm"></div>
+</div>

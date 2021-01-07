@@ -1,0 +1,57 @@
+<div class="text-viewer--content--3hoqQ">
+  <div class="a1 mb-space-md">Logical Operators - A Quick Summary</div>
+  <div class="p-space-md">
+    <div
+      data-purpose="safely-set-inner-html:rich-text-viewer:html"
+      class="article-asset--content--1dAQ9"
+    >
+      <p>
+        As a <strong>reference</strong> which you can come back to (or print
+        out), here's a <strong>quick summary</strong> of how
+        <strong>logical operators</strong> and
+        <strong>comparison operators</strong> behave in JavaScript:
+      </p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">const</span><span class="pln"> userName </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">'Max'</span><span class="pun">;</span></li><li class="L1"><span class="kwd">const</span><span class="pln"> altName </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">''</span><span class="pun">;</span></li><li class="L2"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">userName </span><span class="pun">===</span><span class="pln">&nbsp;</span><span class="str">'Max'</span><span class="pun">);</span><span class="pln">&nbsp;</span><span class="com">// generates and prints a boolean =&gt;&nbsp;true</span></li><li class="L3"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">userName</span><span class="pun">);</span><span class="pln">&nbsp;</span><span class="com">//&nbsp;wasn't touched, still is a string =&gt;&nbsp;'Max'</span></li><li class="L4"><span class="pln">&nbsp;</span></li><li class="L5"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">userName </span><span class="pun">||</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">);</span><span class="pln">&nbsp;</span><span class="com">// userName is truthy and therefore returned by || =&gt;&nbsp;'Max'</span></li><li class="L6"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">altName </span><span class="pun">||</span><span class="pln"> </span><span class="str">'Max'</span><span class="pun">);</span><span class="pln"> </span><span class="com">//&nbsp;altName is falsy (empty string), hence 'Max'&nbsp;is returned =&gt;&nbsp;'Max'</span></li><li class="L7"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">altName </span><span class="pun">||</span><span class="pln"> </span><span class="str">''</span><span class="pun">);</span><span class="pln">&nbsp;</span><span class="com">// both altName and ''&nbsp;are falsy but if the first operand is falsy, the second one is always returned =&gt;&nbsp;''</span></li><li class="L8"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">altName </span><span class="pun">||</span><span class="pln"> </span><span class="kwd">null</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> </span><span class="str">'Anna'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// altName and null are falsy, 'Anna'&nbsp;is returned =&gt;&nbsp;'Anna'</span></li><li class="L9"><span class="pln">&nbsp;</span></li><li class="L0"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">userName </span><span class="pun">&amp;&amp;</span><span class="pln">&nbsp;</span><span class="str">'Anna'</span><span class="pun">);</span><span class="pln">&nbsp;</span><span class="com">// userName is truthy, hence second (!) value is returned =&gt;&nbsp;'Anna'</span></li><li class="L1"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">altName </span><span class="pun">&amp;&amp;</span><span class="pln">&nbsp;</span><span class="str">'Anna'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// altName is falsy, hence first value is returned =&gt;&nbsp;''</span></li><li class="L2"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">userName </span><span class="pun">&amp;&amp;</span><span class="pln">&nbsp;</span><span class="str">''</span><span class="pun">);</span><span class="pln"> </span><span class="com">//&nbsp;userName is truthy, hence second value is returned =&gt;&nbsp;''</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        <strong>Always keep in mind</strong
+        >:&nbsp;<strong>NO</strong>&nbsp;operator (neither <code>===</code>,
+        <code>&gt;</code> etc. nor <code>&amp;&amp;</code> or <code>||</code>)
+        changes the variable you might be using in the comparison. In the above
+        examples, the values stored in <code>userName</code> and
+        <code>altName</code> <strong>are NEVER&nbsp;changed</strong>.
+      </p>
+      <p>
+        <code>===</code>, <code>&gt;</code> etc. just <strong>generate</strong>
+        <strong>new boolean values</strong> which are used in the comparison.
+        <code>||</code> and <code>&amp;&amp;</code>&nbsp;<strong
+          >generate NO&nbsp;booleans</strong
+        >, they just treat the <strong>values</strong>
+        <strong>before and after them as conditions</strong> (which therefore
+        need to yield boolean values and are coerced to booleans if required).
+      </p>
+      <p>
+        Because of the above-described behaviors, you often use
+        <code>||</code> in JavaScript to assign default/&nbsp;fallback values to
+        variables/&nbsp;constants:
+      </p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">const</span><span class="pln"> enteredValue </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">''</span><span class="pun">;</span><span class="pln">&nbsp;</span><span class="com">// let's assume this is set based on some input provided by the user, therefore it might be an empty string</span></li><li class="L1"><span class="pln">&nbsp;</span></li><li class="L2"><span class="kwd">const</span><span class="pln"> userName </span><span class="pun">=</span><span class="pln"> enteredValue </span><span class="pun">||</span><span class="pln"> </span><span class="str">'PLACEHOLDER'</span><span class="pun">;</span><span class="pln">&nbsp;</span><span class="com">// will assign 'PLACEHOLDER'&nbsp;if enteredValue is an empty string</span></li></ol></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-space-sm"></div>
+</div>

@@ -1,0 +1,56 @@
+<div class="text-viewer--content--3hoqQ">
+  <div class="a1 mb-space-md">"Pseudo-Private" Properties</div>
+  <div class="p-space-md">
+    <div
+      data-purpose="safely-set-inner-html:rich-text-viewer:html"
+      class="article-asset--content--1dAQ9"
+    >
+      <p>
+        The addition of private fields and properties is
+        <strong>relatively new</strong> - in the past, such a feature was not
+        part of JavaScript.
+      </p>
+      <p>
+        Hence you might find many scripts that use a concept which you could
+        describe as <strong>"pseudo-private"&nbsp;properties</strong>.
+      </p>
+      <p><strong>It would look like this:</strong></p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">class</span><span class="pln"> </span><span class="typ">User</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">    constructor</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">        </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">_role </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">'admin'</span><span class="pun">;</span></li><li class="L3"><span class="pln">    </span><span class="pun">}</span></li><li class="L4"><span class="pun">}</span></li><li class="L5"><span class="pln">&nbsp;</span></li><li class="L6"><span class="com">//&nbsp;or directly in an object</span></li><li class="L7"><span class="pln">&nbsp;</span></li><li class="L8"><span class="kwd">const</span><span class="pln"> product </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="pun">{</span></li><li class="L9"><span class="pln">    _internalId</span><span class="pun">:</span><span class="pln">&nbsp;</span><span class="str">'abc1'</span></li><li class="L0"><span class="pun">};</span></li></ol></pre>
+        </div>
+      </div>
+      <p><strong>What's that?</strong></p>
+      <p>
+        It's a quite common convention to prefix private properties with an
+        underscore (<code>_</code>) to signal that they should not be accessed
+        from outside of the object.
+      </p>
+      <p>
+        <strong>Important:</strong>&nbsp;It's
+        <strong>just a convention</strong> that should signal something!&nbsp;It
+        does <strong>NOT technically prevent</strong> access. You
+        <strong>CAN</strong> run this code without errors for example:
+      </p>
+      <div class="ud-component--base-components--code-block">
+        <div>
+          <pre
+            class="prettyprint linenums prettyprinted"
+            role="presentation"
+            style=""
+          ><ol class="linenums"><li class="L0"><span class="kwd">const</span><span class="pln"> product </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="pun">{</span></li><li class="L1"><span class="pln">    _internalId</span><span class="pun">:</span><span class="pln">&nbsp;</span><span class="str">'abc1'</span></li><li class="L2"><span class="pun">};</span></li><li class="L3"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">product</span><span class="pun">.</span><span class="pln">_internalId</span><span class="pun">);</span><span class="pln">&nbsp;</span><span class="com">// works!</span></li></ol></pre>
+        </div>
+      </div>
+      <p>
+        It's really just a hint that developers should respect. It's not as
+        strict as the "real" private properties introduced recently
+        (<code>#propertyName</code>).
+      </p>
+    </div>
+  </div>
+  <div class="mt-space-sm"></div>
+</div>
